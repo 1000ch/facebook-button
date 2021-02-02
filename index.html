@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>facebook-button: Facebook button as Web Components.</title>
+    <link rel="stylesheet" href="https://1000ch.github.io/gh-pages.css/gh-pages.css">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script defer src="https://buttons.github.io/buttons.js"></script>
+    <script defer src="https://unpkg.com/github-corner"></script>
+    <script type="module">
+      import { windowReady } from 'https://unpkg.com/html-ready';
+      import XMarked from 'https://unpkg.com/x-marked';
+      import { FacebookButton } from 'https://unpkg.com/facebook-button';
+
+      customElements.define('x-marked', XMarked);
+      customElements.define('facebook-button', FacebookButton);
+
+      windowReady.then(() => {
+        const xmarked = document.querySelector('x-marked');
+        const div = document.querySelector('div');
+        const h2 = xmarked.shadowRoot.querySelector('h2');
+        xmarked.shadowRoot.querySelector('div').insertBefore(div, h2);
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/1000ch/facebook-button" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star 1000ch/facebook-button on GitHub">Star</a>
+      <!-- Place this tag where you want the button to render. -->
+      <a class="github-button" href="https://github.com/1000ch" data-size="large" data-show-count="true" aria-label="Follow @1000ch on GitHub">Follow @1000ch</a>
+    </div>
+    <github-corner>
+      <a href="https://github.com/1000ch/facebook-button">GitHub</a>
+    </github-corner>
+    <x-marked highlight class="container">
+# facebook-button [![devDependency Status](https://david-dm.org/1000ch/facebook-button/dev-status.svg)](https://david-dm.org/1000ch/facebook-button?type=dev)
+
+Facebook button as Web Components.
+
+## Install
+
+Using npm:
+
+```bash
+$ npm install facebook-button
+```
+
+## Usage
+
+Import and register scripts.
+
+```html
+<script type="module">
+import { FacebookButton } from 'https://unpkg.com/facebook-button';
+
+customElements.define('facebook-button', FacebookButton);
+</script>
+```
+
+Just put `<facebook-button>` element in your HTML.
+
+```html
+<facebook-button href="https://github.com" layout="standard" width="50" height="30"></facebook-button>
+<facebook-button href="https://github.com" layout="standard" width="250" height="30"></facebook-button>
+```
+
+- `layout` **standard** / **box_count**
+- `width`
+- `height`
+- `href` URL to like or share.
+
+## Demo
+
+<facebook-button href="https://github.com" layout="standard" width="80" height="30"></facebook-button>
+<facebook-button href="https://github.com" layout="standard" width="250" height="30"></facebook-button>
+
+## License
+
+[MIT](https://1000ch.mit-license.org) © [Shogo Sensui](https://github.com/1000ch)
+    </x-marked>
+  </body>
+</html>
