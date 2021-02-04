@@ -28,10 +28,10 @@ Just put `<facebook-button>` element in your HTML.
 <facebook-button></facebook-button>
 ```
 
-- `layout` **standard** / **box_count**
-- `width`
-- `height`
-- `href` URL to like or share.
+- `layout`: string, must be either **standard** or **box_count**
+- `width`: number, width of `facebook-button`
+- `height`: number, height of `facebook-button`
+- `href`: string, URL to like or share
 
 ## License
 
