@@ -37,7 +37,7 @@ export class FacebookButton extends HTMLElement {
 
     iframe.width = `${this.width}px`;
     iframe.height = `${this.height}px`;
-    iframe.src = this.getInlineFrameSource();
+    iframe.src = this.inlineFrameSource;
   }
 
   attributeChangedCallback(attributeName: string, oldValue: string, newValue: string): void {
@@ -52,7 +52,7 @@ export class FacebookButton extends HTMLElement {
         iframe[attributeName] = `${newValue}px`;
         break;
       default:
-        iframe.src = this.getInlineFrameSource();
+        iframe.src = this.inlineFrameSource;
         break;
     }
   }
@@ -153,9 +153,22 @@ export class FacebookButton extends HTMLElement {
     }
   }
 
-  getInlineFrameSource(): string {
-    const src = `https://www.facebook.com/plugins/like.php?href=${this.href}&send=false&layout=${this.layout}&amp;width=${this.width}&height=${this.height}` + `&show_faces=${this.showfaces}&font=${this.font}&colorscheme=${this.colorscheme}&action=${this.action}`;
+  get inlineFrameSource(): string {
+    const attributes: Record<string, string | null> = {
+      href: this.href,
+      layout: this.layout,
+      width: this.width,
+      height: this.height,
+      show_faces: this.showfaces,
+      font: this.font,
+      colorscheme: this.colorscheme,
+      action: this.action
+    };
 
-    return decodeURIComponent(src);
+    const query: string[] = Object.keys(attributes)
+      .filter(key => attributes[key])
+      .map(key => `${key}=${attributes[key]}`);
+
+    return decodeURIComponent(`https://www.facebook.com/plugins/like.php?${query.join('&')}`);
   }
 }
