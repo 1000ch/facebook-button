@@ -62,19 +62,21 @@ customElements.define('facebook-button', FacebookButton);
 Just put `<facebook-button>` element in your HTML.
 
 ```html
-<facebook-button href="https://github.com" layout="standard" width="50" height="30"></facebook-button>
-<facebook-button href="https://github.com" layout="standard" width="250" height="30"></facebook-button>
+<facebook-button href="https://github.com" layout="standard" action="recommend" width="80" height="30"></facebook-button>
+<facebook-button href="https://github.com" layout="box_count" colorscheme="light" width="250" height="30"></facebook-button>
 ```
 
+- `href`: string, URL to like or share
 - `layout`: string, must be either **standard** or **box_count**
 - `width`: number, width of `facebook-button`
 - `height`: number, height of `facebook-button`
-- `href`: string, URL to like or share
+- `colorscheme`: string, `light` or `dark`
+- `action`: string, `like` or `recommend`
 
 ## Demo
 
-<facebook-button href="https://github.com" layout="standard" width="80" height="30"></facebook-button>
-<facebook-button href="https://github.com" layout="standard" width="250" height="30"></facebook-button>
+<facebook-button href="https://github.com" layout="standard" action="recommend" width="80" height="30"></facebook-button>
+<facebook-button href="https://github.com" layout="box_count" colorscheme="light" width="250" height="30"></facebook-button>
 
 ## License
 
