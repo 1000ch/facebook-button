@@ -28,11 +28,12 @@ Just put `<facebook-button>` element in your HTML.
 <facebook-button></facebook-button>
 ```
 
+- `href`: string, URL to like or share
 - `layout`: string, must be either **standard** or **box_count**
 - `width`: number, width of `facebook-button`
 - `height`: number, height of `facebook-button`
-- `href`: string, URL to like or share
-
+- `colorscheme`: string, `light` or `dark`
+- `action`: string, `like` or `recommend`
 ## License
 
 [MIT](https://1000ch.mit-license.org) © [Shogo Sensui](https://github.com/1000ch)

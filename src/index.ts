@@ -1,10 +1,12 @@
 export class FacebookButton extends HTMLElement {
   static get observedAttributes(): string[] {
     return [
+      'href',
       'layout',
       'width',
       'height',
-      'href'
+      'colorscheme',
+      'action'
     ];
   }
 
@@ -57,6 +59,30 @@ export class FacebookButton extends HTMLElement {
     }
   }
 
+  get href(): string | null {
+    return this.getAttribute('href');
+  }
+
+  set href(value: string | null) {
+    if (value === null || value === undefined) {
+      this.removeAttribute('href');
+    } else {
+      this.setAttribute('href', value);
+    }
+  }
+
+  get layout(): string | null {
+    return this.getAttribute('layout');
+  }
+
+  set layout(value: string | null) {
+    if (value === null || value === undefined) {
+      this.removeAttribute('layout');
+    } else {
+      this.setAttribute('layout', value);
+    }
+  }
+
   get width(): string | null {
     return this.getAttribute('width');
   }
@@ -81,18 +107,6 @@ export class FacebookButton extends HTMLElement {
     }
   }
 
-  get action(): string | null {
-    return this.getAttribute('action') || '';
-  }
-
-  set action(value: string | null) {
-    if (value === null || value === undefined) {
-      this.removeAttribute('action')
-    } else {
-      this.setAttribute('action', value);
-    }
-  }
-
   get colorscheme(): string | null {
     return this.getAttribute('colorscheme');
   }
@@ -105,51 +119,15 @@ export class FacebookButton extends HTMLElement {
     }
   }
 
-  get href(): string | null {
-    return this.getAttribute('href');
+  get action(): string | null {
+    return this.getAttribute('action') || '';
   }
 
-  set href(value: string | null) {
+  set action(value: string | null) {
     if (value === null || value === undefined) {
-      this.removeAttribute('href');
+      this.removeAttribute('action')
     } else {
-      this.setAttribute('href', value);
-    }
-  }
-
-  get font(): string | null {
-    return this.getAttribute('font');
-  }
-
-  set font(value: string | null) {
-    if (value === null || value === undefined) {
-      this.removeAttribute('font');
-    } else {
-      this.setAttribute('font', value);
-    }
-  }
-
-  get layout(): string | null {
-    return this.getAttribute('layout');
-  }
-
-  set layout(value: string | null) {
-    if (value === null || value === undefined) {
-      this.removeAttribute('layout');
-    } else {
-      this.setAttribute('layout', value);
-    }
-  }
-
-  get showfaces(): string | null {
-    return this.getAttribute('showfaces');
-  }
-
-  set showfaces(value: string | null) {
-    if (value === null || value === undefined) {
-      this.removeAttribute('showfaces');
-    } else {
-      this.setAttribute('showfaces', value);
+      this.setAttribute('action', value);
     }
   }
 
@@ -159,8 +137,6 @@ export class FacebookButton extends HTMLElement {
       layout: this.layout,
       width: this.width,
       height: this.height,
-      show_faces: this.showfaces,
-      font: this.font,
       colorscheme: this.colorscheme,
       action: this.action
     };
