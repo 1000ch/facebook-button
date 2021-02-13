@@ -1,10 +1,9 @@
-export class FacebookLikeButton extends HTMLElement {
+export class FacebookShareButton extends HTMLElement {
   static get observedAttributes(): string[] {
     return [
       'href',
       'layout',
       'size',
-      'action',
       'width'
     ];
   }
@@ -27,7 +26,7 @@ export class FacebookLikeButton extends HTMLElement {
 
     this.attachShadow({
       mode: 'open'
-    }).innerHTML = FacebookLikeButton.template;
+    }).innerHTML = FacebookShareButton.template;
   }
 
   connectedCallback(): void {
@@ -82,18 +81,6 @@ export class FacebookLikeButton extends HTMLElement {
     }
   }
 
-  get action(): string | null {
-    return this.getAttribute('action') || 'like';
-  }
-
-  set action(value: string | null) {
-    if (value === null || value === undefined) {
-      this.removeAttribute('action')
-    } else {
-      this.setAttribute('action', value);
-    }
-  }
-
   get size(): string | null {
     return this.getAttribute('size') || 'small';
   }
@@ -120,17 +107,9 @@ export class FacebookLikeButton extends HTMLElement {
 
   get defaultWidth(): string {
     if (this.layout === 'button' || this.layout === 'box_count') {
-      if (this.action !== 'recommend') {
-        return this.size !== 'large' ? '59' : '67';
-      } else {
-        return this.size !== 'large' ? `103` : '119';
-      }
+      return this.size !== 'large' ? '67' : '76';
     } else if (this.layout === 'button_count') {
-      if (this.action !== 'recommend') {
-        return this.size !== 'large' ? '88' : '101';
-      } else {
-        return this.size !== 'large' ? '132' : '153';
-      }
+      return this.size !== 'large' ? '96' : '111';
     }
 
     return '';
@@ -150,14 +129,13 @@ export class FacebookLikeButton extends HTMLElement {
     const attributes: Record<string, string | null> = {
       href: this.href,
       layout: this.layout,
-      size: this.size,
-      action: this.action
+      size: this.size
     };
 
     const query: string[] = Object.keys(attributes)
       .filter(key => attributes[key])
       .map(key => `${key}=${attributes[key]}`);
 
-    return decodeURIComponent(`https://www.facebook.com/plugins/like.php?${query.join('&')}`);
+    return decodeURIComponent(`https://www.facebook.com/plugins/share_button.php?${query.join('&')}`);
   }
 }
