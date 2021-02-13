@@ -16,22 +16,22 @@ Import and register scripts.
 
 ```html
 <script type="module">
-import { FacebookButton } from 'https://unpkg.com/facebook-button';
+import { FacebookLikeButton } from 'https://unpkg.com/facebook-button';
 
-customElements.define('facebook-button', FacebookButton);
+customElements.define('facebook-like-button', FacebookLikeButton);
 </script>
 ```
 
-Just put `<facebook-button>` element in your HTML.
+Just put `<facebook-like-button>` element in your HTML.
 
 ```html
-<facebook-button></facebook-button>
+<facebook-like-button></facebook-like-button>
 ```
 
 - `href`: string, URL to like or share
 - `layout`: string, must be either **standard** or **box_count**
-- `width`: number, width of `facebook-button`
-- `height`: number, height of `facebook-button`
+- `width`: number, width of `facebook-like-button`
+- `height`: number, height of `facebook-like-button`
 - `colorscheme`: string, `light` or `dark`
 - `action`: string, `like` or `recommend`
 ## License
