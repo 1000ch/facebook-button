@@ -1,4 +1,4 @@
-# facebook-button ![GitHub Actions Status](https://github.com/1000ch/facebook-button/workflows/test/badge.svg) [![devDependency Status](https://david-dm.org/1000ch/facebook-button/dev-status.svg)](https://david-dm.org/1000ch/facebook-button?type=dev)
+# facebook-button ![GitHub Actions Status](https://github.com/1000ch/facebook-button/workflows/test/badge.svg)
 
 Facebook button as Web Components.
 
